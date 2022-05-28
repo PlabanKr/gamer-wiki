@@ -1,6 +1,7 @@
 :root {
   --primary-col: #171717;
   --secondary-col: #444444;
+  --secondary-col-low-opacity: #444444a5;
   --btn-col: #DA0037;
   --btn-dark-col: #8e0023;
 }

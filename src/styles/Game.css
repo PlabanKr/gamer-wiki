@@ -4,6 +4,35 @@
     align-items: center;
 }
 
+.info {
+    text-align: center;
+    padding: 0.6rem;
+    margin-right: 2rem;
+}
+
+.info::after {
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background-color: var(--secondary-col-low-opacity);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    top: 4%;
+    left: 5%;
+    right: 60%;
+    transform: scale(0);
+    transition: transform ease-out 150ms;
+}
+
+.info:hover {
+    cursor: pointer;
+}
+
+.info:hover::after {
+    transform: scale(1);
+}
+
 .searchInput {
     padding: 0.4rem;
     width: 25rem;
