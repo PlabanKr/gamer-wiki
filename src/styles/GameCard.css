@@ -1,0 +1,20 @@
+.gameCardMain {
+    background-color: var(--secondary-col);
+    width: 40rem;
+    margin: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+
+.getBtn {
+    color: inherit;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--btn-col);
+    padding: 1rem 2rem;
+}
+
+.getBtn:hover {
+    background-color: var(--btn-dark-col);
+    cursor: pointer;
+}

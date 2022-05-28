@@ -1,0 +1,19 @@
+.mainGameBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchInput {
+    padding: 0.4rem;
+    width: 25rem;
+}
+
+.search {
+    color: inherit;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--btn-col);
+    padding: 0.4rem 1rem;
+    margin: 1rem;
+}
