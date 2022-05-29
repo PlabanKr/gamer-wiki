@@ -1,30 +1,63 @@
 import "../styles/Game.css";
-import { searchByCategory } from "../api/api";
-import { useState } from "react";
+import { searchByCategory, searchByYear } from "../api/api";
+import { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import GameCard from "./GameCard";
 
 const Game = () => {
-  const [categoryName, setCategoryName] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState(null);
+  const [selectValue, setSelectValue] = useState("category");
+  const [placeholderVal, setPlaceholderVal] = useState(
+    "Enter category (eg. shooter, strategy)"
+  );
+
+  useEffect(() => {
+    const cate = "Enter category (eg. shooter, strategy)";
+    const year = "Enter year (eg. 2012, 2013)";
+    if (selectValue == "category") {
+      setPlaceholderVal(cate);
+    } else {
+      setPlaceholderVal(year);
+    }
+  });
 
   const handleGameName = (e) => {
-    setCategoryName(e.target.value);
+    setSearchValue(e.target.value);
   };
 
   const handleSearch = async (e) => {
     e.preventDefault();
+
+    //debug
+    // console.log(searchValue);
+    // console.log(searchResult);
+    // console.log(selectValue);
+
+    let res;
     setSearchResult(null);
-    let res = await searchByCategory(categoryName);
+    if (selectValue == "category") {
+      res = await searchByCategory(searchValue);
+    } else {
+      res = await searchByYear(searchValue);
+    }
     setSearchResult(res);
+  };
+
+  const handleSelect = (e) => {
+    setSelectValue(e.target.value);
   };
 
   return (
     <div className="mainGameBody">
       <form>
         <div className="select-parent">
-          <select name="search-option" className="search-option">
+          <select
+            name="search-option"
+            className="search-option"
+            onChange={handleSelect}
+          >
             <option value="category">Category</option>
             <option value="year">Year</option>
           </select>
@@ -33,7 +66,7 @@ const Game = () => {
         <input
           type="text"
           className="search-input"
-          placeholder="Enter category (eg. shooter, strategy)"
+          placeholder={placeholderVal}
           onChange={handleGameName}
         />
         <button className="search" onClick={handleSearch}>
