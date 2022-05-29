@@ -1,48 +1,53 @@
 .mainGameBody {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-container {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
 }
 
 .info {
-    text-align: center;
-    padding: 0.6rem;
-    margin-right: 2rem;
+  text-align: center;
 }
 
-.info::after {
-    content: attr(data-tool-tip);
-    display: block;
-    position: absolute;
-    background-color: var(--secondary-col-low-opacity);
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    font-size: 0.75rem;
-    top: 4%;
-    left: 5%;
-    right: 60%;
-    transform: scale(0);
-    transition: transform ease-out 150ms;
+.info::before {
+  content: attr(data-tool-tip);
+  /* content: "hello World"; */
+  display: block;
+  position: absolute;
+  background-color: var(--secondary-col-low-opacity);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  bottom: 100%;
+  right: 100%;
+  width: 20rem;
+  transform: scale(0);
+  transition: transform ease-out 150ms;
 }
 
 .info:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.info:hover::after {
-    transform: scale(1);
+.info:hover::before {
+  transform: scale(1);
 }
 
 .searchInput {
-    padding: 0.4rem;
-    width: 25rem;
+  padding: 0.4rem;
+  width: 25rem;
 }
 
 .search {
-    color: inherit;
-    border: none;
-    border-radius: 2px;
-    background-color: var(--btn-col);
-    padding: 0.4rem 1rem;
-    margin: 1rem;
+  color: inherit;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--btn-col);
+  padding: 0.4rem 1rem;
+  margin: 1rem;
 }
