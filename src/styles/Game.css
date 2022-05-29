@@ -4,6 +4,72 @@
   align-items: center;
 }
 
+.select-parent {
+  position: relative;
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.search-option {
+  padding: 0.4rem 2rem 0.4rem 1.5rem;
+  background-color: var(--secondary-col);
+  color: white;
+  border: 0;
+  border-radius: 2px;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: var(--btn-col);
+  height: 100%;
+  width: 2rem;
+  border-radius: 0px 2px 2px 0px;
+  pointer-events: none;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+  --arrow-size: 0.45rem;
+  --arrow-color: rgba(255, 255, 255, 0.8);
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+  border-left: var(--arrow-size) solid transparent;
+  border-right: var(--arrow-size) solid transparent;
+  border-bottom: var(--arrow-size) solid var(--arrow-color);
+  top: 30%;
+}
+
+.custom-arrow::after {
+  border-left: var(--arrow-size) solid transparent;
+  border-right: var(--arrow-size) solid transparent;
+  border-top: var(--arrow-size) solid var(--arrow-color);
+  top: 60%;
+}
+
+.search-input {
+  padding: 0.4rem;
+  width: 25rem;
+}
+
+.search {
+  color: inherit;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--btn-col);
+  padding: 0.4rem 1rem;
+  margin: 1rem;
+}
+
 .info-container {
   position: absolute;
   bottom: 2%;
@@ -16,7 +82,6 @@
 
 .info::before {
   content: attr(data-tool-tip);
-  /* content: "hello World"; */
   display: block;
   position: absolute;
   background-color: var(--secondary-col-low-opacity);
@@ -36,18 +101,4 @@
 
 .info:hover::before {
   transform: scale(1);
-}
-
-.searchInput {
-  padding: 0.4rem;
-  width: 25rem;
-}
-
-.search {
-  color: inherit;
-  border: none;
-  border-radius: 2px;
-  background-color: var(--btn-col);
-  padding: 0.4rem 1rem;
-  margin: 1rem;
 }

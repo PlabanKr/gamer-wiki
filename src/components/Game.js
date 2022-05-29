@@ -23,9 +23,16 @@ const Game = () => {
   return (
     <div className="mainGameBody">
       <form>
+        <div className="select-parent">
+          <select name="search-option" className="search-option">
+            <option value="category">Category</option>
+            <option value="year">Year</option>
+          </select>
+          <span className="custom-arrow"></span>
+        </div>
         <input
           type="text"
-          className="searchInput"
+          className="search-input"
           placeholder="Enter category (eg. shooter, strategy)"
           onChange={handleGameName}
         />
